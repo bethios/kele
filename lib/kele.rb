@@ -17,6 +17,17 @@ class Kele
     @user = JSON.parse(response.body)
   end
 
+  def get_mentor_availability(mentor_id)
+    # caila's mentor id 2348651
+    response = self.class.get(api_url("mentors/#{mentor_id}/student_availability"), headers: { "authorization" => @auth_token }).to_a
+    available = []
+    response.each do |timeslot|
+      if timeslot["booked"] == nil
+        available.push(timeslot)
+      end
+    end
+    puts available
+  end
 
   private
 
