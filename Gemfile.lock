@@ -3,13 +3,17 @@ PATH
   specs:
     kele (0.0.1)
       httparty (~> 0.13)
+      json (~> 1.8)
+      will_paginate (~> 3.1.1)
 
 GEM
   remote: https://rubygems.org/
   specs:
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
+    json (1.8.6)
     multi_xml (0.6.0)
+    will_paginate (3.1.5)
 
 PLATFORMS
   ruby
