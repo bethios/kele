@@ -19,6 +19,7 @@ class Kele
     # my id 24534
     response = self.class.get(api_url("users/me"), headers: { "authorization" => @auth_token })
     @user = JSON.parse(response.body)
+    @user_id = @user["current_enrollment"]["id"]
   end
 
   def get_mentor_availability(mentor_id)
