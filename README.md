@@ -1,13 +1,8 @@
 # Kele
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/kele`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Kele is a Ruby Gem API client to access the Bloc API.
 
 ## Installation
-
 Add this line to your application's Gemfile:
-
 ```ruby
 gem 'kele'
 ```
@@ -21,8 +16,59 @@ Or install it yourself as:
     $ gem install kele
 
 ## Usage
+**The client can be used as follows, (Populated with your Bloc.io email and password to access the API. 
+):**
 
-TODO: Write usage instructions here
+```ruby
+$ irb
+>> require './lib/kele'
+=> true
+>> Kele.new("jane@gmail.com", "abc123")
+```
+**To retrieve a parsed ruby hash of your Bloc.io account information then run:** 
+
+```ruby
+$ kele_client.get_me
+```
+
+**To retrieve your mentor's current availability:**
+
+```ruby
+$ kele_client.get_mentor_availability(mentor_id)
+```
+**To retrieve your Bloc.io roadmap:** 
+
+```ruby
+$ kele_client.get_roadmap(roadmap_id)
+```
+
+**To retrieve information on a particular checkpoint:** 
+```ruby
+$ kele_client.get_checkpoint(checkpoint_id)
+```
+**To retrieve your messages:**
+
+```ruby
+$ kele_client.get_messages(1) # returns the first page of message threads
+$ kele_client.get_messages # returns all message threads
+```
+
+**To send a message:** 
+
+```ruby
+$ kele.client.create_message(sender_email, recipient_id, stripped_text, subject )
+```
+
+**To submit a checkpoint:**
+```angular2html
+$ kele_client.create_submission(checkpoint_id, assignment_branch, assignment_commit_link, comment)
+```
+
+**To update a checkpoint**
+```angular2html
+$ kele_client.update_submission(checkpoint_id, assignment_branch, assignment_commit_link, comment)
+```
+
 
 ## Development
 
@@ -32,7 +78,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/kele.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bethios/kele.
 
 
 ## License
